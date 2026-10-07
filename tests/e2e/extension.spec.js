@@ -123,6 +123,28 @@ test('pets mode off leaves the band untouched', async () => {
   await page.close();
 });
 
+test('Kitties mode adds grass and rocks while Corgis mode does not', async () => {
+  const kitty = await open({ enabled: false, mode: 'kitty' });
+  const kittyBand = await shot(kitty, { x: 0, y: 42, width: 900, height: 18 });
+  await kitty.close();
+
+  const corgi = await open({ enabled: false, mode: 'corgi' });
+  const corgiBand = await shot(corgi, { x: 0, y: 42, width: 900, height: 18 });
+  expect(differs(kittyBand, corgiBand)).toBe(true);
+  await corgi.close();
+});
+
+test('Bunny mode adds grass and carrots while Corgis mode does not', async () => {
+  const bunny = await open({ enabled: false, mode: 'bunny' });
+  const bunnyBand = await shot(bunny, { x: 0, y: 42, width: 900, height: 18 });
+  await bunny.close();
+
+  const corgi = await open({ enabled: false, mode: 'corgi' });
+  const corgiBand = await shot(corgi, { x: 0, y: 42, width: 900, height: 18 });
+  expect(differs(bunnyBand, corgiBand)).toBe(true);
+  await corgi.close();
+});
+
 test('Power Mode off shows pets but no counter', async () => {
   const page = await open({ enabled: false, mode: 'corgi' });
   const base = await shot(page, COUNTER);
@@ -160,5 +182,8 @@ test('popup persists choices to chrome.storage.local', async () => {
   expect(typeof saved.dpmcSettings.enabled).toBe('boolean');
   await popup.reload();
   await expect(popup.locator('input[value="octopus"]')).toBeChecked();
+  await popup.locator('label.card', { hasText: 'Bunny' }).click();
+  const bunnySettings = await popup.evaluate(() => chrome.storage.local.get('dpmcSettings'));
+  expect(bunnySettings.dpmcSettings.mode).toBe('bunny');
   await popup.close();
 });

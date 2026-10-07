@@ -7,6 +7,7 @@
     o: '#e8923a', d: '#b8651f', w: '#fff4e0', k: '#2b1d1a',
     g: '#9aa3b8', y: '#c7ff3d', p: '#ff8fab', l: '#e3e7f2',
     m: '#b43fc9', M: '#e58bf0', W: '#ffffff',
+    u: '#f4eee8', v: '#d4c1b5', q: '#ff9cad',
   };
 
   const CORGI_BODY = [
@@ -37,6 +38,20 @@
     ['....gg..gg......', '....ll..ll......', '................'],
   ];
 
+  const BUNNY_BODY = [
+    '.....uu..uu.....',
+    '.....uq..qu.....',
+    '.....uq..qu.....',
+    '.....uuuuuu.....',
+    '...uuuuuuuuuu...',
+    '..uuu..uuuuuuu..',
+    '.uuuu..uuuuuuuu.',
+  ];
+  const BUNNY_LEGS = [
+    ['.uuu...uuuuuuu..', '..uu...uu..uu...', '..uu...uu..uu...'],
+    ['...uuu.uuuuuuu..', '....uu.uu..uu...', '....uu.uu..uu...'],
+  ];
+
   const OCTOPUS_HEAD = [
     '...mmmmmm...',
     '..mMMMMMMm..',
@@ -51,12 +66,14 @@
   const SPRITES = {
     corgi: [CORGI_BODY.concat(CORGI_LEGS[0]), CORGI_BODY.concat(CORGI_LEGS[1])],
     kitty: [KITTY_BODY.concat(KITTY_LEGS[0]), KITTY_BODY.concat(KITTY_LEGS[1])],
+    bunny: [BUNNY_BODY.concat(BUNNY_LEGS[0]), BUNNY_BODY.concat(BUNNY_LEGS[1])],
   };
 
   const SCALE = 3;
   const PET_SIZE = {
     corgi: { w: 16 * SCALE, h: 10 * SCALE },
     kitty: { w: 16 * SCALE, h: 10 * SCALE },
+    bunny: { w: 16 * SCALE, h: 10 * SCALE },
     octopus: { w: 12 * SCALE, h: (OCTOPUS_HEAD.length + TENTACLE_LEN) * SCALE },
   };
 

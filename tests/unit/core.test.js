@@ -14,13 +14,19 @@ test('normalizeSettings applies defaults and rejects bad values', () => {
 });
 
 test('pet pools and water per mode', () => {
-  assert.deepEqual(D.petPool('all'), ['corgi', 'kitty', 'octopus']);
+  assert.deepEqual(D.petPool('all'), ['corgi', 'kitty', 'octopus', 'bunny']);
   assert.deepEqual(D.petPool('corgi-kitty'), ['corgi', 'kitty']);
   assert.deepEqual(D.petPool('off'), []);
+  assert.deepEqual(D.petPool('bunny'), ['bunny']);
   assert.equal(D.hasWater('all'), true);
   assert.equal(D.hasWater('octopus'), true);
   assert.equal(D.hasWater('corgi-kitty'), false);
   assert.equal(D.hasWater('off'), false);
+  assert.equal(D.hasKittyGarden('kitty'), true);
+  assert.equal(D.hasKittyGarden('all'), false);
+  assert.equal(D.hasKittyGarden('corgi'), false);
+  assert.equal(D.hasBunnyGarden('bunny'), true);
+  assert.equal(D.hasBunnyGarden('all'), false);
 });
 
 test('isEligibleEditable accepts text fields and contenteditable only', () => {

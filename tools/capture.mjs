@@ -75,6 +75,14 @@ let gifVideo;
   await page.close();
 }
 
+// Bunny mode: capture its grass and carrot backdrop with the pixel-art pet.
+{
+  const page = await openDemo({ enabled: true, mode: 'bunny' });
+  await page.waitForTimeout(900);
+  await page.screenshot({ path: path.join(docs, 'bunny-garden.png'), clip: { x: 0, y: 0, width: 900, height: 120 } });
+  await page.close();
+}
+
 const videoPath = await gifVideo.path();
 await context.close();
 server.close();
@@ -95,4 +103,4 @@ for (const f of fs.readdirSync(framesDir).sort()) {
 }
 gif.finish();
 fs.writeFileSync(path.join(docs, 'power-mode.gif'), gif.bytes());
-console.log('Saved docs/popup.png, pets-all.png, combo-sparks.png, octopus-ink.png, power-mode.gif');
+console.log('Saved docs/popup.png, pets-all.png, combo-sparks.png, octopus-ink.png, bunny-garden.png, power-mode.gif');

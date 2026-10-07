@@ -54,7 +54,7 @@
         ctx.fillRect(0, 0, canvas.width, canvas.height);
       }
       const kinds = p.mode === 'all' || p.mode === 'corgi-kitty' ? p.species : [p.species[0]];
-      const scale = 2;
+      const scale = kinds.length > 2 ? 1 : 2;
       const widths = kinds.map((s) => D.PET_SIZE[s].w * scale / 3);
       const gap = (canvas.width - widths.reduce((a, b) => a + b, 0)) / (kinds.length + 1);
       let x = gap;

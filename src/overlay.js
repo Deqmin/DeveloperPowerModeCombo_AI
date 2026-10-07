@@ -243,6 +243,9 @@
         }
       }
 
+      if (NS.hasKittyGarden(this.sim.mode)) this._renderKittyGarden(ctx, w);
+      if (NS.hasBunnyGarden(this.sim.mode)) this._renderBunnyGarden(ctx, w);
+
       for (const b of this.sim.ink.blots) {
         ctx.globalAlpha = 0.6 * (1 - b.age / b.life);
         ctx.fillStyle = '#231946';
@@ -254,6 +257,50 @@
 
       for (const pet of this.sim.pets) NS.drawPet(ctx, pet);
       ctx.restore();
+    }
+
+    _renderKittyGarden(ctx, width) {
+      ctx.fillStyle = '#77b94b';
+      ctx.fillRect(0, BAND - 12, width, 12);
+      ctx.fillStyle = '#a6d968';
+      ctx.fillRect(0, BAND - 12, width, 3);
+      for (let x = 4; x < width; x += 13) {
+        const height = 2 + (Math.floor(x / 13) % 3);
+        ctx.fillStyle = '#4d963c';
+        ctx.fillRect(x, BAND - 13 - height, 2, height);
+      }
+      for (let x = 27; x < width; x += 103) {
+        const y = BAND - 7 - (Math.floor(x / 103) % 2) * 2;
+        ctx.fillStyle = '#777a83';
+        ctx.fillRect(x, y, 10, 4);
+        ctx.fillStyle = '#a1a2a5';
+        ctx.fillRect(x + 2, y - 2, 5, 2);
+        ctx.fillStyle = '#535762';
+        ctx.fillRect(x + 1, y + 3, 8, 1);
+      }
+    }
+
+    _renderBunnyGarden(ctx, width) {
+      ctx.fillStyle = '#75b84b';
+      ctx.fillRect(0, BAND - 12, width, 12);
+      ctx.fillStyle = '#a5d966';
+      ctx.fillRect(0, BAND - 12, width, 3);
+      for (let x = 5; x < width; x += 12) {
+        const height = 2 + (Math.floor(x / 12) % 3);
+        ctx.fillStyle = '#4b923c';
+        ctx.fillRect(x, BAND - 13 - height, 2, height);
+      }
+      for (let x = 43; x < width; x += 157) {
+        const groundY = BAND - 5;
+        ctx.fillStyle = '#f47a28';
+        ctx.fillRect(x + 2, groundY - 7, 5, 5);
+        ctx.fillRect(x + 3, groundY - 2, 3, 2);
+        ctx.fillRect(x + 4, groundY, 1, 2);
+        ctx.fillStyle = '#55a64a';
+        ctx.fillRect(x + 1, groundY - 9, 3, 2);
+        ctx.fillRect(x + 5, groundY - 10, 3, 2);
+        ctx.fillRect(x + 4, groundY - 8, 2, 2);
+      }
     }
 
     _renderParticles() {

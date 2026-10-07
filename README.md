@@ -1,12 +1,12 @@
 # Developer Power Mode Combo
 
-A local-only Chrome Manifest V3 extension. Typing in text fields builds an arcade combo with neon sparks, while original pixel-art **Corgis, Kitties and Octopuses** wander across the top 60 pixels of the page.
+A local-only Chrome Manifest V3 extension. Typing in text fields builds an arcade combo with neon sparks, while original pixel-art **Corgis, Kitties, Octopuses and Bunnies** wander across the top 60 pixels of the page.
 
 ![Animated demo](docs/power-mode.gif)
 
-| Combo counter and sparks | All pets | Octopus mode with ink |
-| --- | --- | --- |
-| ![Combo](docs/combo-sparks.png) | ![Pets](docs/pets-all.png) | ![Octopus](docs/octopus-ink.png) |
+| Combo counter and sparks | All pets | Octopus mode with ink | Bunny garden |
+| --- | --- | --- | --- |
+| ![Combo](docs/combo-sparks.png) | ![Pets](docs/pets-all.png) | ![Octopus](docs/octopus-ink.png) | ![Bunny garden](docs/bunny-garden.png) |
 
 Popup settings: ![Popup](docs/popup.png)
 
@@ -25,9 +25,11 @@ No build step, backend, API keys, background worker or store publishing is neede
 
 - **Combo**: counter appears from 2 hits, neon sparks at the caret from 3 hits, and the overlay (never the page) shakes briefly on every 10th hit.
 - **Reset**: after 1.5 s without a counted edit, or when focus moves to a different editor.
-- **Pets**: Corgis, Kitties and Octopuses animate independently of typing, continue while the page is idle and respawn automatically. Octopuses swim with moving tentacles and release spreading, fading ink clouds.
+- **Pets**: Corgis, Kitties, Octopuses and Bunnies animate independently of typing, continue while the page is idle and respawn automatically. Octopuses swim with moving tentacles and release spreading, fading ink clouds.
 - **Water and seaweed**: translucent water and swaying seaweed in *Octopus* and *All pets* modes.
-- **Modes**: All pets, Corgis & Kitties, Corgis, Kitties, Octopus, Off. Preferences are stored in `chrome.storage.local`.
+- **Kitty garden**: pixel grass and rocks fill the top band in *Kitties* mode.
+- **Bunny garden**: pixel grass and carrots fill the top band in *Bunny* mode.
+- **Modes**: All pets, Corgis & Kitties, Corgis, Kitties, Octopus, Bunny, Off. Preferences are stored in `chrome.storage.local`.
 
 ## What counts as a hit
 

@@ -10,7 +10,7 @@ function seeded(seed = 1) {
 }
 
 test('sprite grids are rectangular and use known palette keys', () => {
-  const grids = [...D.SPRITES.corgi, ...D.SPRITES.kitty, D.OCTOPUS_HEAD];
+  const grids = [...D.SPRITES.corgi, ...D.SPRITES.kitty, ...D.SPRITES.bunny, D.OCTOPUS_HEAD];
   for (const rows of grids) {
     const w = rows[0].length;
     for (const row of rows) {
@@ -22,6 +22,8 @@ test('sprite grids are rectangular and use known palette keys', () => {
   assert.equal(D.SPRITES.corgi[0][0].length * D.PET_SCALE, D.PET_SIZE.corgi.w);
   assert.equal(D.SPRITES.kitty[0][0].length * D.PET_SCALE, D.PET_SIZE.kitty.w);
   assert.equal(D.SPRITES.kitty[0].length * D.PET_SCALE, D.PET_SIZE.kitty.h);
+  assert.equal(D.SPRITES.bunny[0][0].length * D.PET_SCALE, D.PET_SIZE.bunny.w);
+  assert.equal(D.SPRITES.bunny[0].length * D.PET_SCALE, D.PET_SIZE.bunny.h);
   assert.equal(D.OCTOPUS_HEAD[0].length * D.PET_SCALE, D.PET_SIZE.octopus.w);
 });
 

@@ -4,7 +4,7 @@
   const NS = (root.DPMC = root.DPMC || {});
 
   const STORAGE_KEY = 'dpmcSettings';
-  const MODES = ['all', 'corgi-kitty', 'corgi', 'kitty', 'octopus', 'off'];
+  const MODES = ['all', 'corgi-kitty', 'corgi', 'kitty', 'octopus', 'bunny', 'off'];
   const DEFAULT_SETTINGS = Object.freeze({ enabled: true, mode: 'all' });
 
   const COMBO_TIMEOUT_MS = 1500;
@@ -15,11 +15,12 @@
   const IME_ECHO_MS = 20;
 
   const PET_POOLS = {
-    all: ['corgi', 'kitty', 'octopus'],
+    all: ['corgi', 'kitty', 'octopus', 'bunny'],
     'corgi-kitty': ['corgi', 'kitty'],
     corgi: ['corgi'],
     kitty: ['kitty'],
     octopus: ['octopus'],
+    bunny: ['bunny'],
     off: [],
   };
 
@@ -47,6 +48,14 @@
 
   function hasWater(mode) {
     return mode === 'all' || mode === 'octopus';
+  }
+
+  function hasKittyGarden(mode) {
+    return mode === 'kitty';
+  }
+
+  function hasBunnyGarden(mode) {
+    return mode === 'bunny';
   }
 
   // Duck-typed so it can be unit-tested with plain objects.
@@ -131,6 +140,8 @@
     normalizeSettings,
     petPool,
     hasWater,
+    hasKittyGarden,
+    hasBunnyGarden,
     isEligibleEditable,
     describeKey,
     classifyInput,
