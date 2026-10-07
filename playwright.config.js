@@ -5,4 +5,4 @@ module.exports = defineConfig({
   workers: 1,
   timeout: 60000,
   reporter: 'list',
-});
+}); 
