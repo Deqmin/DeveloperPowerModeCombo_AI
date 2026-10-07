@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Developer Power Mode Combo</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <header>
+    <h1>POWER MODE COMBO</h1>
+    <label class="switch">
+      <input type="checkbox" id="power" role="switch">
+      <span class="track"></span>
+      <span class="switch-label">Power Mode</span>
+    </label>
+  </header>
+
+  <fieldset>
+    <legend>Pets</legend>
+    <div class="grid" id="modes">
+      <label class="card"><input type="radio" name="mode" value="all"><canvas data-preview="all" width="96" height="40"></canvas><span>All pets</span></label>
+      <label class="card"><input type="radio" name="mode" value="corgi-kitty"><canvas data-preview="corgi-kitty" width="96" height="40"></canvas><span>Corgis &amp; Kitties</span></label>
+      <label class="card"><input type="radio" name="mode" value="corgi"><canvas data-preview="corgi" width="96" height="40"></canvas><span>Corgis</span></label>
+      <label class="card"><input type="radio" name="mode" value="kitty"><canvas data-preview="kitty" width="96" height="40"></canvas><span>Kitties</span></label>
+      <label class="card"><input type="radio" name="mode" value="octopus"><canvas data-preview="octopus" width="96" height="40"></canvas><span>Octopus</span></label>
+      <label class="card"><input type="radio" name="mode" value="off"><canvas data-preview="off" width="96" height="40"></canvas><span>Off</span></label>
+    </div>
+  </fieldset>
+
+  <p class="note">Local only. Typed text is never saved or sent.</p>
+
+  <script src="../src/core.js"></script>
+  <script src="../src/sprites.js"></script>
+  <script src="popup.js"></script>
+</body>
+</html>

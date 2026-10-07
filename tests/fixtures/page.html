@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Power Mode Demo Page</title>
+  <style>
+    * { box-sizing: border-box; }
+    body { margin: 0; font: 15px/1.4 "Segoe UI", system-ui, sans-serif; background: #f4f1fb; color: #231946; }
+    header { height: 60px; display: flex; align-items: center; gap: 16px; padding: 0 24px; background: #fff; border-bottom: 1px solid #d9d2ee; }
+    header strong { font-size: 18px; }
+    button { font: inherit; padding: 6px 14px; border: 1px solid #6a56b8; background: #6a56b8; color: #fff; border-radius: 6px; cursor: pointer; }
+    main { max-width: 760px; margin: 90px 24px 0; display: grid; gap: 14px; }
+    label { display: grid; gap: 4px; font-weight: 600; font-size: 13px; }
+    input, textarea, #rich { font: 15px/1.4 "Segoe UI", system-ui, sans-serif; padding: 8px 10px; border: 1px solid #b9aee0; border-radius: 6px; background: #fff; }
+    textarea { height: 90px; resize: none; }
+    #rich { min-height: 60px; }
+    #clicks { font-weight: 600; }
+  </style>
+</head>
+<body>
+  <header>
+    <strong>Dev Console</strong>
+    <button id="banner-btn" type="button">Run build</button>
+    <span id="clicks">clicks: 0</span>
+  </header>
+  <main>
+    <label>Single line <input id="single" type="text" autocomplete="off"></label>
+    <label>Multi line <textarea id="multi"></textarea></label>
+    <label>Rich text <div id="rich" contenteditable="true"></div></label>
+    <label>Password <input id="secret" type="password" autocomplete="off"></label>
+  </main>
+  <script>
+    let n = 0;
+    document.getElementById('banner-btn').addEventListener('click', () => {
+      document.getElementById('clicks').textContent = 'clicks: ' + (++n);
+    });
+  </script>
+</body>
+</html>
